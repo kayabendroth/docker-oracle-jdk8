@@ -17,7 +17,6 @@ deployment:
     branch: master
     commands:
       - docker login -u "${DOCKER_LOGIN_USERNAME}" -p "${DOCKER_LOGIN_PASSWORD}" -e "${DOCKER_LOGIN_EMAIL}"
-      - IMAGE_ID=$(docker images | grep 'kayabendroth/oracle-jdk8:latest' | awk '{ print $3 }') ; \
-        docker tag -f "${IMAGE_ID}" kayabendroth/oracle-jdk8:oracle-jdk8
+      - docker tag -f "`docker images | grep 'kayabendroth/oracle-jdk8:latest' | awk '{ print $3 }'`" kayabendroth/oracle-jdk8:oracle-jdk8
       - docker push kayabendroth/oracle-jdk8
 
