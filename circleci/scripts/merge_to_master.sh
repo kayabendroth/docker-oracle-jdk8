@@ -31,7 +31,7 @@ else
     echo "Merging tested commit ${CIRCLE_SHA1}..."
     git merge "${CIRCLE_SHA1}" || exit 1
     echo 'Pushing local master to upstream...'
-    git push git@github.com:ePages-de/epages-puppet-master.git master:master
+    git push git@github.com:kayabendroth/docker-oracle-jdk8.git master:master
   else
     echo 'Local master is on the commit we were asked to merge already.'
   fi
