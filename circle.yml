@@ -1,0 +1,11 @@
+test:
+  override:
+    # Test building the Docker image.
+    - docker build -t kayabendroth/oracle-jdk8:latest .
+
+deployment:
+  automerge:
+    branch: dev
+    commands:
+      - circleci/scripts/merge_to_master.sh
+
