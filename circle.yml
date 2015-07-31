@@ -6,6 +6,9 @@ test:
   override:
     # Test building the Docker image.
     - docker build -t kayabendroth/oracle-jdk8:latest .
+    # Check if 'java' and 'javac' can be called w/o errors.
+    - docker run --rm -t -i kayabendroth/oracle-jdk8:latest java -version
+    - docker run --rm -t -i kayabendroth/oracle-jdk8:latest javac -version
 
 deployment:
   automerge:
