@@ -49,6 +49,11 @@ done
 if [[ -z "${PATH_TO_CACHE}" ]] ; then
     echo 'No path to cache directory given.'
     exit 1
+else
+    # Create cache directory in case it doesn't exist.
+    if [[ ! -d "${PATH_TO_CACHE}" ]] ; then
+        mkdir -p "${PATH_TO_CACHE}"
+    fi
 fi
 
 # Currently hard-coded. Change this!
