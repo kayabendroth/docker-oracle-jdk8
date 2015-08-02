@@ -3,7 +3,7 @@ machine:
     - docker
 
 dependencies:
-  cache_directories::
+  cache_directories:
     - ~/.docker
   post:
     # Cache Docker image layers.
