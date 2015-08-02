@@ -21,7 +21,7 @@ RUN echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" > /e
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
 
 # Refresh line for up-to-date packages.
-ENV REFRESH_AT='2015-06-16'
+ENV REFRESH_AT='2015-08-02'
 
 # Update package lists and upgrade all pre-installed packages to their
 # latest version.
