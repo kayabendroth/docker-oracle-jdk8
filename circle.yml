@@ -2,6 +2,13 @@ machine:
   services:
     - docker
 
+dependencies:
+  cache_directories::
+    - ~/.docker
+  post:
+    # Cache Docker image layers.
+    - circleci/scripts/docker-cache-layers.sh -d ~/.docker
+
 test:
   override:
     # Test building the Docker image.
