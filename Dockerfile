@@ -8,7 +8,7 @@ LABEL description="This image is used to provide a lightweight \
     environment for compiling Java 8 source code. It's based on Debian \
     Jessie, the 'stable' version of Debian. The JDK8 packages comes \
     from a Launchpad repo containing the Oracle JDK."
-LABEL version="0.3.0"
+LABEL version="0.2.0"
 
 
 # Set user and environment variables.
