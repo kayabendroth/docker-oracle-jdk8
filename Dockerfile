@@ -27,11 +27,16 @@ ENV REFRESH_AT='2015-08-05'
 # latest version.
 RUN apt-get -yqq update && apt-get -y upgrade && apt-get -y dist-upgrade
 
-# UTF-8.
+# Set locale.
+ENV LANGUAGE en_US.UTF-8
+ENV LANG     en_US.UTF-8
+ENV LC_ALL   en_US.UTF-8
 RUN apt-get -y install locales
-RUN locale-gen en_US.UTF-8
-ENV LANG       en_US.UTF-8
-ENV LC_ALL     en_US.UTF-8
+# http://serverfault.com/a/689947
+RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
+RUN echo 'LANG="${LANG}"' > /etc/default/locale
+RUN dpkg-reconfigure --frontend=noninteractive locales
+RUN update-locale LANG=$LANG
 
 # Install Oracle JDK 8.
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes --no-install-recommends oracle-java8-installer
