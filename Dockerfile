@@ -21,7 +21,7 @@ RUN echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu vivid main" > /et
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
 
 # Refresh line for up-to-date packages.
-ENV REFRESH_AT='2015-08-05'
+ENV REFRESH_AT='2015-09-16'
 
 # Update package lists and upgrade all pre-installed packages to their
 # latest version.
