@@ -8,7 +8,7 @@ LABEL description="This image is used to provide a lightweight \
     environment for compiling Java 8 source code. It's based on Debian \
     Jessie, the 'stable' version of Debian. The JDK8 packages comes \
     from a Launchpad repo containing the Oracle JDK."
-LABEL version="0.2.0"
+LABEL version="0.3.0"
 
 
 # Set user and environment variables.
@@ -21,7 +21,7 @@ RUN echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu vivid main" > /et
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
 
 # Refresh line for up-to-date packages.
-ENV REFRESH_AT='2015-09-16'
+ENV REFRESH_AT='2016-01-06'
 
 # Update package lists and upgrade all pre-installed packages to their
 # latest version.
