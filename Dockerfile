@@ -8,7 +8,7 @@ LABEL description="This image is used to provide a lightweight \
     environment for compiling Java 8 source code. It's based on Debian \
     Jessie, the 'stable' version of Debian. The JDK8 packages comes \
     from a Launchpad repo containing the Oracle JDK."
-LABEL version="0.2.0"
+LABEL version="0.3.0"
 
 
 # Set user and environment variables.
@@ -17,7 +17,7 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 # Add Launchpad repo.
 RUN echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | debconf-set-selections
-RUN echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu vivid main" > /etc/apt/sources.list.d/webupd8team-java-vivid.list
+RUN echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu wily main" > /etc/apt/sources.list.d/webupd8team-java-wily.list
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
 
 # Refresh line for up-to-date packages.
