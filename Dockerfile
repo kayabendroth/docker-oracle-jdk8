@@ -17,7 +17,7 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 # Add Launchpad repo.
 RUN echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | debconf-set-selections
-RUN echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu wily main" > /etc/apt/sources.list.d/webupd8team-java-wily.list
+RUN echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu vivid main" > /etc/apt/sources.list.d/webupd8team-java-vivid.list
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
 
 # Refresh line for up-to-date packages.
