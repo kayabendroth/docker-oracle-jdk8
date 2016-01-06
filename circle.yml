@@ -1,6 +1,11 @@
 machine:
   services:
     - docker
+  environment:
+    MERGE_SCRIPT_URL_PREFIX: https://raw.githubusercontent.com/kayabendroth/cd-utils/master/scripts/git
+    MERGE_SCRIPT: merge-to.sh
+    GIT_UPSTREAM_URL: git@github.com:kayabendroth/docker-oracle-jdk8.git
+    GIT_UPSTREAM_BRANCH_PRODUCTION: master
 
 dependencies:
   cache_directories:
@@ -21,7 +26,8 @@ deployment:
   automerge:
     branch: dev
     commands:
-      - circleci/scripts/merge_to_master.sh
+      - wget -O "/tmp/${MERGE_SCRIPT}" "${MERGE_SCRIPT_URL_PREFIX}/${MERGE_SCRIPT}" && chmod 750 "/tmp/${MERGE_SCRIPT}"
+      - /tmp/${MERGE_SCRIPT} -c "${CIRCLE_SHA1}" -e "${CIRCLE_BRANCH}" -t "${GIT_UPSTREAM_BRANCH_PRODUCTION}" -r "${GIT_UPSTREAM_URL}"
 
   hub:
     branch: master
